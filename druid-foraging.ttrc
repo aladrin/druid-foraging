@@ -1,5 +1,8 @@
 #nop to use this file put #read /path/to/druid-foraging.ttrc in your tintinrc
 
+#var FULL {<cfa>};
+#var WANT {<faf>};
+
 #var {spell_table} {
 {Sense Purity}{null}
 {Summon Creature}{White lotus}
@@ -32,7 +35,6 @@
 {Thunderstaff}{Lightning-struck tree bark}
 {Earthquake}{Sandworm scales}
 {Create Standing Stones}{Resonant crystals}
-{Natures Form}{Resonant crystals}
 }
 
 #var {terrain_desc} {
@@ -113,8 +115,8 @@
   #var break {------------------------------------------------------------------------------------};
   #echo $break;
   #foreach {*terrain_desc[%*]} {terrain} {
-    #foreach $terrain_desc[$terrain] desc #high {$desc} {<cfa>};
-    #foreach $terrain_oview[$terrain] oview #high {$oview} {<cfa>};
+    #foreach $terrain_desc[$terrain] desc #high {$desc} $FULL;
+    #foreach $terrain_oview[$terrain] oview #high {$oview} $FULL;
   }
   #foreach {*spell_table[%*]} {spell} {
     #if {{$spell_table[$spell]} != {null}} {
@@ -144,11 +146,11 @@
         {$terrainStr}
         {$oviewStr};
       #if {{$herb_inventory[$spell_table[$spell]]} >= {50}} {
-        #echo {<cfa> $spell_string}
+        #echo {$FULL $spell_string}
       } {
-        #echo {<faf> $spell_string};
-        #foreach $oviewList oview #high {$oview} {<faf>};
-        #foreach $descList desc #high {$desc} {<faf>};
+        #echo {$WANT $spell_string};
+        #foreach $oviewList oview #high {$oview} $WANT;
+        #foreach $descList desc #high {$desc} $WANT;
       };
     }
   }
