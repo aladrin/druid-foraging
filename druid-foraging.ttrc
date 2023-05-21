@@ -37,7 +37,7 @@
 
 #var {terrain_desc} {
 {mountains}{Hiking through mountains}
-{plains}{In some plains}
+{plains}{In some plains;Plains, northwest of Vesla}
 {bushes}{Surrounded by bushes}
 {hills}{In amongst many hills}
 {desert}{Crossing a desert}
@@ -66,7 +66,7 @@
 {Death cup mushrooms}{caverns}
 {Fossils}{mountains;hills}
 {Gelen sap}{forest}
-{Giant earthworms}{plains}
+{Giant earthworms}{beach;plains}
 {Guvana leaves}{jungle}
 {Holly berries}{bushes}
 {Hyach berries}{jungle}
@@ -89,46 +89,7 @@
 {Yukat root}{swamp}
 }
 
-#var {herb_list} {
-Begnat flowers;
-Blue viper skins;
-Cahun mushrooms;
-Chutil moss;
-Death cup mushrooms;
-Fossils;
-Gelen sap;
-Giant earthworms;
-Guvana leaves;
-Holly berries;
-Hyach berries;
-Jubjub feathers;
-Lightning-fused crystals;
-Lightning-struck tree bark;
-Loco root;
-Obsidian fragments;
-Resonant crystals;
-Sandworm scales;
-Serem flowers;
-Siren fruit;
-Thorn apple seeds;
-Tumbleweed;
-Tuwill grass;
-White chalk;
-White lotus;
-Wind-weathered rocks;
-Wood sloth droppings;
-Yukat root
-}
-
-#foreach $herb_list {herb} {#gag {^$herb}}
-
-#al show_herbs_inventory {
-  #foreach {*herb_inventory[%*]} {herb} {#show $herb: $herb_inventory[$herb]}
-}
-
-#al show_spell_table {
-  #foreach {*spell_table[%*]} {spell} {#show $spell: $spell_table[$spell]}
-}
+#foreach {*terrain_table[%*]} {herb} {#gag {^$herb}}
 
 #al show_terrain_table {
   #foreach {*terrain_table[%*]} {herb} {#show $herb: $terrain_table[$herb]}
@@ -206,7 +167,7 @@ Yukat root
 #al create_herbs_inventory {
   #var created_herbs_inventory {yes};
   #var i 0;
-  #foreach $herb_list herb {
+  #foreach {*terrain_table[%*]} herb {
     #switch $i {
       #case 0 {
         #var previous_herb $herb;
@@ -220,9 +181,9 @@ Yukat root
   }
 }
 
-#al destroy_herbs_inventory {
+#al unherb {
   #var i 0;
-  #foreach $herb_list herb {
+  #foreach {*terrain_table[%*]} herb {
     #switch $i {
       #case 0 {
         #var previous_herb $herb;
