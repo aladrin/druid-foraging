@@ -1,4 +1,4 @@
-### TinTin++ <herbs> command parser for the Druid class on Moral Decay LPMUD
+### TinTin++ herbs command parser for the Druid class on Moral Decay LPMUD
 ![druid-foraging](screenshot0.png)
 To activate it in your tt++
 ```
