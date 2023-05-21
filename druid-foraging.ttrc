@@ -1,7 +1,7 @@
 #nop to use this file put #read /path/to/druid-foraging.ttrc in your tintinrc
 
-#var FULL {<cfa>};
-#var WANT {<faf>};
+#var FULL {<dfa>};
+#var WANT {<eaf>};
 
 #var {spell_table} {
 {Sense Purity}{null}
@@ -92,10 +92,6 @@
 }
 
 #foreach {*terrain_table[%*]} {herb} {#gag {^$herb}}
-
-#al show_terrain_table {
-  #foreach {*terrain_table[%*]} {herb} {#show $herb: $terrain_table[$herb]}
-}
 
 #al herbs {
   #var format {%-23s%-27s%-4s%-20p%-8p};
