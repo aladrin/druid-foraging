@@ -1,4 +1,4 @@
-# nop to use this file put #read /path/to/druid-foraging.ttrc in your tintinrc
+#nop to use this file put #read /path/to/druid-foraging.ttrc in your tintinrc
 
 #var {spell_table} {
 {Sense Purity}{null}
