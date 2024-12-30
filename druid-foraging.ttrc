@@ -113,7 +113,7 @@
   #foreach {*terrain_desc[%*]} {terrain} {
     #foreach $terrain_desc[$terrain] desc #high {$desc} $FULL;
     #foreach $terrain_oview[$terrain] oview #high {$oview} $FULL;
-  }
+  };
   #foreach {*spell_table[%*]} {spell} {
     #if {{$spell_table[$spell]} != {null}} {
       #var terrainStr {};
@@ -127,11 +127,11 @@
           #foreach {$terrain_oview[$terrain]} oview {
             #var oviewStr {$oviewStr $oview};
             #list oviewList add $oview;
-          }
+          };
           #foreach $terrain_desc[$terrain] desc #list descList add $desc;
           #var terrainStr {$terrainStr,};
         } #var terrainStr {$terrainStr,}
-      }
+      };
       #var terrainStr {$terrainStr,};
       #replace terrainStr {,,} {};
       #list oviewList simplify oviewList;
@@ -149,7 +149,7 @@
         #foreach $descList desc #high {$desc} $WANT;
       };
     }
-  }
+  };
   #echo $break;
 }
 
@@ -170,7 +170,7 @@
       #case 0 {
         #var previous_herb $herb;
         #math i $i + 1;
-      }
+      };
       #case 1 {
         #var null @setup_herb{$previous_herb;$herb};
         #var i 0;
@@ -186,7 +186,7 @@
       #case 0 {
         #var previous_herb $herb;
         #math i $i + 1;
-      }
+      };
       #case 1 {
         #var null @destroy_herb{$previous_herb;$herb};
         #var i 0;
